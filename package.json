@@ -1,0 +1,51 @@
+{
+  "name": "restaurant-api",
+  "version": "0.0.1",
+  "description": "Restaurant api in nodejs",
+  "main": "dist",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon -w src --exec \"babel-node src --preset es2015,stage-0\"",
+    "build":"babel src -s -D -d dist --presets es2015,stage-0",
+    "start":"NODE_ENV=production pm2 start dist",
+    "prestart":"npm run -s build",
+    "lint":"eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "eslintConfig":{
+    "parserOptions":{
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env":{
+      "node":true
+    },
+    "rules":{
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelipeCaue/restaurant-api.git"
+  },
+  "author": "Felipe Caue <felipecaue.fraga@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelipeCaue/restaurant-api/issues"
+  },
+  "homepage": "https://github.com/FelipeCaue/restaurant-api#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^3.12.2",
+    "nodemon": "^1.11.0"
+  }
+}
